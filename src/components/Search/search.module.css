@@ -1,0 +1,41 @@
+.search {
+    position: relative;
+    text-align: center;
+    padding: 10px 0 0 0;
+}
+
+.searchIcon {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    left: 30px;
+    top: 2px;
+    color: #c1c1c1;
+}
+.searchIcon:focus {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.searchInput {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 12px 20px;
+    width: 300px;
+    border-radius: 10px;
+    font-size: 1rem;
+    padding-left: 36px;
+    background: #f4f4f4;
+}
+
+.searchClearIcon {
+    width: 18px;
+    height: 18px;
+    opacity: 0.3;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.searchClearIcon:hover {
+    opacity: 0.8;
+}

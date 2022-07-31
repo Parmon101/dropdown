@@ -1,0 +1,23 @@
+.wrap {
+    border-bottom: 1px solid #f4f4f4;
+}
+.row {
+    display: flex;
+    width: 400px;
+}
+
+.name {
+    font-size: 1rem;
+    color: #333333;
+    padding: 0 0 0 8px;
+}
+
+.split {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 16px 12px 16px;
+}
+
+.split2 {
+    display: flex;
+}
