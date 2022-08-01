@@ -3,10 +3,15 @@ import styles from './table.module.css';
 import { Checkbox } from '../Checkbox';
 import { Search } from '../Search/Search';
 
-export const Table = ({ data, setData }) => {
+type TableType = {
+    data: { id: number; name: string; img: string; check: boolean }[];
+    onChange: (el: number) => void;
+    showLang?: () => void;
+};
+export const Table: React.FC<TableType> = ({ data, onChange, showLang }) => {
     const [filterData, setFilterData] = React.useState(data);
 
-    const handleSearch = (event) => {
+    const handleSearch = (event: any) => {
         let value = event.target.value.toLowerCase();
         let result = [];
         result = data.filter((data) => {
@@ -21,15 +26,22 @@ export const Table = ({ data, setData }) => {
                 <Search onChange={handleSearch} />
             </div>
             <div>
-                {filterData.map((el, idx) => (
+                {filterData.map((el) => (
                     <div key={el.id} className={styles.wrap}>
                         <div className={styles.split}>
-                            <div className={styles.split2}>
-                                <img src={Object.values(data[idx].img)} alt="lang" />
+                            <div>
+                                {/* {!showLang && ( */}
+                                <img
+                                    height="24"
+                                    width="24"
+                                    // src={Object.values(el.img)}
+                                    alt="lang"
+                                />
+                                {/* )} */}
                                 <div className={styles.name}>{el.name}</div>
                             </div>
                             <div>
-                                <Checkbox data={el} />
+                                <Checkbox data={el} onChange={onChange} />
                             </div>
                         </div>
                     </div>

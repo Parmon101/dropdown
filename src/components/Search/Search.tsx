@@ -1,7 +1,11 @@
 import styles from './search.module.css';
 import isearch from '../../assets/icon/search.svg';
 
-export const Search = ({ onChange }) => {
+type SearchType = {
+    onChange: (index: React.InputHTMLAttributes<HTMLInputElement>) => void;
+};
+
+export const Search: React.FC<SearchType> = ({ onChange }) => {
     return (
         <div className={styles.search}>
             <img className={styles.searchIcon} width="16" height="16" src={isearch} alt="logo" />

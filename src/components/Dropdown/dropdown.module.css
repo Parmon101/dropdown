@@ -1,7 +1,7 @@
 .container {
     background: #ffffff;
     width: 400px;
-    height: 368px;
+    height: 100%;
 
     margin: auto;
 }
@@ -12,7 +12,7 @@
 .menu {
     background: #ffffff;
     width: 400px;
-    height: 368px;
+    height: 100%;
 
     margin: auto;
 
