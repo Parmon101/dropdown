@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './checkbox.module.css';
 
 type CheckboxType = {
-    data: { id: number; name: string; img: string; check: boolean };
+    data: { id: number; name: string; img: object; check: boolean };
     onChange: (el: number) => void;
 };
 

@@ -3,26 +3,26 @@ import { Table } from '../Table';
 import styles from './dropdown.module.css';
 
 import rus from '../../assets/lang/rus.svg';
-// import en from '../../assets/lang/en.svg';
-// import germany from '../../assets/lang/germany.svg';
-// import poland from '../../assets/lang/poland.svg';
-// import italy from '../../assets/lang/italy.svg';
-// import spain from '../../assets/lang/spain.svg';
+import en from '../../assets/lang/en.svg';
+import germany from '../../assets/lang/germany.svg';
+import poland from '../../assets/lang/poland.svg';
+import italy from '../../assets/lang/italy.svg';
+import spain from '../../assets/lang/spain.svg';
 import { Select } from '../Select/Select';
 
 const data = [
-    { id: 1, name: 'Русский', img: '../../assets/lang/rus.svg', check: false },
-    { id: 2, name: 'Английский', img: '../../assets/lang/rus.svg', check: false },
-    { id: 3, name: 'Испанский', img: '../../assets/lang/rus.svg', check: false },
-    { id: 4, name: 'Немецкий', img: '../../assets/lang/rus.svg', check: false },
-    { id: 5, name: 'Итальянский', img: '../../assets/lang/rus.svg', check: false },
-    { id: 6, name: 'Польский', img: '../../assets/lang/rus.svg', check: false },
+    { id: 1, name: 'Русский', img: { rus }, check: false },
+    { id: 2, name: 'Английский', img: { en }, check: false },
+    { id: 3, name: 'Испанский', img: { spain }, check: true },
+    { id: 4, name: 'Немецкий', img: { germany }, check: true },
+    { id: 5, name: 'Итальянский', img: { italy }, check: false },
+    { id: 6, name: 'Польский', img: { poland }, check: false },
 ];
 
 export type DataType = {
     id: number;
     name: string;
-    img: string;
+    img: object;
     check: boolean;
 }[];
 
@@ -30,8 +30,10 @@ export const Dropdown: React.FC<DataType> = () => {
     const [arr, setArr] = React.useState(data);
     const [isActive, setIsActive] = React.useState(true);
 
-    const [isShowLang, _setIsShowLang] = React.useState(false);
-    // const [isMulty, setIsMulty] = React.useState(false);
+    const [isShowLang, _setIsShowLang] = React.useState(true);
+
+    const [isMulty, _setIsMulty] = React.useState(true);
+    const [oneItem, setOneItem] = React.useState({});
 
     const toogle = (el: number) => {
         const newContent = [...arr];

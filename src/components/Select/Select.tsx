@@ -10,16 +10,16 @@ type SelectType = {
     toogle: (el: number) => void;
 };
 
-type OneType = {
+type OneObjType = {
     id: number;
     name: string;
-    img: string;
+    img: object;
     check: boolean;
 };
 
 export const Select: React.FC<SelectType> = ({ showSelect, data, log, toogle }) => {
     const filter = data.filter((el) => el.check);
-    const [_selectId, setSelectId] = React.useState<DataType | OneType>(data);
+    const [_selectId, setSelectId] = React.useState<DataType | OneObjType>(data);
     const [_toogleCheck, setToogleCheck] = React.useState({});
 
     const changeCheck: React.MouseEventHandler<HTMLInputElement> = (el) => {

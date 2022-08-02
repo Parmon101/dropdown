@@ -27,26 +27,28 @@ export const Table: React.FC<TableType> = ({ data, onChange, showLang }) => {
                 <Search onChange={handleSearch} />
             </div>
             <div>
-                {filterData.map((el) => (
-                    <div key={el.id} className={styles.wrap}>
-                        <div className={styles.split}>
-                            <div>
-                                {showLang && (
-                                    <img
-                                        height="24"
-                                        width="24"
-                                        // src={Object.values(el.img)}
-                                        alt="lang"
-                                    />
-                                )}
-                                <div className={styles.name}>{el.name}</div>
-                            </div>
-                            <div>
-                                <Checkbox data={el} onChange={onChange} />
+                {filterData.map((el) => {
+                    return (
+                        <div key={el.id} className={styles.wrap}>
+                            <div className={styles.split}>
+                                <div>
+                                    {showLang && (
+                                        <img
+                                            height="24"
+                                            width="24"
+                                            src={String(Object.values(el.img))}
+                                            alt="lang"
+                                        />
+                                    )}
+                                    <div className={styles.name}>{el.name}</div>
+                                </div>
+                                <div>
+                                    <Checkbox data={el} onChange={onChange} />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
         </div>
     );
