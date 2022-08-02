@@ -1,25 +1,12 @@
 import React from 'react';
 import styles from './select.module.css';
 import iClose from '../../assets/icon/close.svg';
-import { DataType } from '../Dropdown/Dropdown';
-
-type SelectType = {
-    showSelect: (e: React.FormEvent<HTMLElement>) => void;
-    data: DataType;
-    log: (e: React.FormEvent<HTMLElement>) => void;
-    toogle: (el: number) => void;
-};
-
-type OneObjType = {
-    id: number;
-    name: string;
-    img: object;
-    check: boolean;
-};
+import { DataType } from '../types/DataType';
+import { SelectType } from '../types/SelectType';
 
 export const Select: React.FC<SelectType> = ({ showSelect, data, log, toogle }) => {
     const filter = data.filter((el) => el.check);
-    const [_selectId, setSelectId] = React.useState<DataType | OneObjType>(data);
+    const [_selectId, setSelectId] = React.useState<DataType[] | DataType>(data);
     const [_toogleCheck, setToogleCheck] = React.useState({});
 
     const changeCheck: React.MouseEventHandler<HTMLInputElement> = (el) => {

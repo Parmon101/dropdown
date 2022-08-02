@@ -2,13 +2,8 @@ import React from 'react';
 import styles from './table.module.css';
 import { Checkbox } from '../Checkbox';
 import { Search } from '../Search/Search';
-import { DataType } from '../Dropdown/Dropdown';
+import { TableType } from '../types/TableType';
 
-type TableType = {
-    data: DataType;
-    onChange: (el: number) => void;
-    showLang?: boolean;
-};
 export const Table: React.FC<TableType> = ({ data, onChange, showLang }) => {
     const [filterData, setFilterData] = React.useState(data);
 

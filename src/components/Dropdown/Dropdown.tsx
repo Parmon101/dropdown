@@ -9,6 +9,7 @@ import poland from '../../assets/lang/poland.svg';
 import italy from '../../assets/lang/italy.svg';
 import spain from '../../assets/lang/spain.svg';
 import { Select } from '../Select/Select';
+import { DataType } from '../types/DataType';
 
 const data = [
     { id: 1, name: 'Русский', img: { rus }, check: false },
@@ -18,13 +19,6 @@ const data = [
     { id: 5, name: 'Итальянский', img: { italy }, check: false },
     { id: 6, name: 'Польский', img: { poland }, check: false },
 ];
-
-export type DataType = {
-    id: number;
-    name: string;
-    img: object;
-    check: boolean;
-}[];
 
 export const Dropdown: React.FC<DataType> = () => {
     const [arr, setArr] = React.useState(data);
