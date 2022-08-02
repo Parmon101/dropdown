@@ -2,7 +2,7 @@ import styles from './search.module.css';
 import isearch from '../../assets/icon/search.svg';
 
 type SearchType = {
-    onChange: (index: React.InputHTMLAttributes<HTMLInputElement>) => void;
+    onChange: (index: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const Search: React.FC<SearchType> = ({ onChange }) => {

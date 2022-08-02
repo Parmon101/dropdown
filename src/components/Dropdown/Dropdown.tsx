@@ -2,7 +2,7 @@ import React from 'react';
 import { Table } from '../Table';
 import styles from './dropdown.module.css';
 
-// import rus from '../../assets/lang/rus.svg';
+import rus from '../../assets/lang/rus.svg';
 // import en from '../../assets/lang/en.svg';
 // import germany from '../../assets/lang/germany.svg';
 // import poland from '../../assets/lang/poland.svg';
@@ -19,21 +19,18 @@ const data = [
     { id: 6, name: 'Польский', img: '../../assets/lang/rus.svg', check: false },
 ];
 
-type DataType = {
+export type DataType = {
     id: number;
     name: string;
     img: string;
     check: boolean;
-};
+}[];
 
 export const Dropdown: React.FC<DataType> = () => {
     const [arr, setArr] = React.useState(data);
-    const [selectArr, setSelectArr] = React.useState(arr);
     const [isActive, setIsActive] = React.useState(true);
 
-    // const selectobj = [{ id: 0, name: '', img: '', check: false }];
-
-    // const [isShowLang, setIsShowLang] = React.useState(true);
+    const [isShowLang, _setIsShowLang] = React.useState(false);
     // const [isMulty, setIsMulty] = React.useState(false);
 
     const toogle = (el: number) => {
@@ -42,54 +39,24 @@ export const Dropdown: React.FC<DataType> = () => {
         setArr(newContent);
     };
 
-    const log = (el: React.FormEvent<HTMLFormElement>) => {
+    const log = (el: React.FormEvent<HTMLElement>) => {
         el.stopPropagation();
-        console.log(el);
     };
 
-    const openSelect = (e: React.FormEvent<HTMLFormElement>) => {
+    const showSelect = (e: React.FormEvent<HTMLElement>) => {
         e.preventDefault();
         return setIsActive(!isActive);
     };
 
-    // const add = (el: any) => {
-    //     const newContent = [...arr];
-    //     newContent[1].check = !newContent[1].check;
-    //     newContent[2].check = !newContent[2].check;
-    //     setArr(newContent);
-    // };
-
-    // const del = (el) => {
-    //     const newContent = [...arr];
-    //     newContent[1].check = !newContent[1].check;
-    //     setSelectArr(newContent);
-    // };
-
-    // const delet = (el) => {
-    //     el.stopPropagation();
-
-    //     const newContent = [...arr];
-    //     newContent[el].check = !newContent[el].check;
-    //     // setArr(newContent);
-    //     // id.stopPropagation();
-    //     setArr(arr.filter((obj) => (obj.check = !obj.check)));
-    // };
-
     return (
         <>
             <div className={styles.container}>
-                {/* <div onClick={add}>1</div> */}
                 <div className={styles.select}>
-                    <Select onChange={openSelect} data={arr} log={log} />
+                    <Select showSelect={showSelect} data={arr} log={log} toogle={toogle} />
                 </div>
-                {/* <div onClick={(e) => delet(1)}>delete</div> */}
                 {isActive && (
                     <div className={styles.menu}>
-                        <Table
-                            data={arr}
-                            onChange={toogle}
-                            // showLang={isShowLang}
-                        />
+                        <Table data={arr} onChange={toogle} showLang={isShowLang} />
                     </div>
                 )}
             </div>

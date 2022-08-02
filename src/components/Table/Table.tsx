@@ -2,16 +2,17 @@ import React from 'react';
 import styles from './table.module.css';
 import { Checkbox } from '../Checkbox';
 import { Search } from '../Search/Search';
+import { DataType } from '../Dropdown/Dropdown';
 
 type TableType = {
-    data: { id: number; name: string; img: string; check: boolean }[];
+    data: DataType;
     onChange: (el: number) => void;
-    showLang?: () => void;
+    showLang?: boolean;
 };
 export const Table: React.FC<TableType> = ({ data, onChange, showLang }) => {
     const [filterData, setFilterData] = React.useState(data);
 
-    const handleSearch = (event: any) => {
+    const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
         let value = event.target.value.toLowerCase();
         let result = [];
         result = data.filter((data) => {
@@ -30,14 +31,14 @@ export const Table: React.FC<TableType> = ({ data, onChange, showLang }) => {
                     <div key={el.id} className={styles.wrap}>
                         <div className={styles.split}>
                             <div>
-                                {/* {!showLang && ( */}
-                                <img
-                                    height="24"
-                                    width="24"
-                                    // src={Object.values(el.img)}
-                                    alt="lang"
-                                />
-                                {/* )} */}
+                                {showLang && (
+                                    <img
+                                        height="24"
+                                        width="24"
+                                        // src={Object.values(el.img)}
+                                        alt="lang"
+                                    />
+                                )}
                                 <div className={styles.name}>{el.name}</div>
                             </div>
                             <div>
