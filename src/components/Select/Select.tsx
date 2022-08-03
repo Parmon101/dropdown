@@ -20,22 +20,26 @@ export const Select: React.FC<SelectType> = ({ showSelect, data, log, toogle, is
     return (
         <>
             <div className={styles.label}>Язык</div>
-            <div onClick={showSelect} className={styles.select}>
-                {filter.map((select) => {
-                    return (
-                        <div key={select.id} className={styles.tag} onClick={log}>
-                            <span>{select.name}</span>
-                            <div onClick={changeCheck} id={`${select.id}`}>
-                                <img src={iClose} alt="-"></img>
-                            </div>
-                        </div>
-                    );
-                })}
-                <div className={styles.iArrow}>
-                    <img
-                        className={isActive ? styles.iShow : styles.iHide}
-                        src={iArrow}
-                        alt="reverse"></img>
+            <div>
+                <div onClick={showSelect} className={styles.select}>
+                    <div className={styles.table}>
+                        {filter.map((select) => {
+                            return (
+                                <div key={select.id} className={styles.tag} onClick={log}>
+                                    <span>{select.name}</span>
+                                    <div onClick={changeCheck} id={`${select.id}`}>
+                                        <img src={iClose} alt="-"></img>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                    <div className={styles.iArrow}>
+                        <img
+                            className={isActive ? styles.iShow : styles.iHide}
+                            src={iArrow}
+                            alt="reverse"></img>
+                    </div>
                 </div>
             </div>
         </>
