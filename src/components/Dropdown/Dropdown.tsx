@@ -14,20 +14,19 @@ import { DataType } from '../types/DataType';
 const data = [
     { id: 1, name: 'Русский', img: rus, check: false },
     { id: 2, name: 'Английский', img: en, check: false },
-    { id: 3, name: 'Испанский', img: spain, check: true },
-    { id: 4, name: 'Немецкий', img: germany, check: true },
+    { id: 3, name: 'Испанский', img: spain, check: false },
+    { id: 4, name: 'Немецкий', img: germany, check: false },
     { id: 5, name: 'Итальянский', img: italy, check: false },
     { id: 6, name: 'Польский', img: poland, check: false },
 ];
 
 export const Dropdown: React.FC<DataType> = () => {
     const [arr, setArr] = React.useState(data);
-    const [isActive, setIsActive] = React.useState(true);
+    const [isActive, setIsActive] = React.useState(false);
 
     const [isShowLang, _setIsShowLang] = React.useState(true);
-
     const [isMulty, _setIsMulty] = React.useState(true);
-    const [oneItem, setOneItem] = React.useState({});
+    const [showCheck, setSowCheck] = React.useState(true);
 
     const toogle = (el: number) => {
         const newContent = [...arr];
@@ -44,6 +43,14 @@ export const Dropdown: React.FC<DataType> = () => {
         return setIsActive(!isActive);
     };
 
+    React.useEffect(() => {
+        if (isMulty) {
+            const isOneItem = data.filter((element) => element.check);
+            isOneItem.length < 1 ? setSowCheck(true) : setSowCheck(false);
+            console.log(isOneItem.length);
+        }
+    });
+
     return (
         <>
             <div className={styles.container}>
@@ -52,7 +59,12 @@ export const Dropdown: React.FC<DataType> = () => {
                 </div>
                 {isActive && (
                     <div className={styles.menu}>
-                        <Table data={arr} onChange={toogle} showLang={isShowLang} />
+                        <Table
+                            data={arr}
+                            onChange={toogle}
+                            showLang={isShowLang}
+                            showCheck={showCheck}
+                        />
                     </div>
                 )}
             </div>
