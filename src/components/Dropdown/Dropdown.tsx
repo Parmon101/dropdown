@@ -29,6 +29,11 @@ export const Dropdown: React.FC<DataType> = () => {
     const [isMulty, _setIsMulty] = React.useState(true);
     const [showCheck, setSowCheck] = React.useState(true);
 
+    React.useEffect(() => {
+        const newContent = [...arr];
+        setArr(newContent);
+    }, []);
+
     const toogle = (el: number) => {
         const newContent = [...arr];
         newContent[el].check = !newContent[el].check;
