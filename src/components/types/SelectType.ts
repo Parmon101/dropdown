@@ -5,4 +5,5 @@ export type SelectType = {
     data: DataType[];
     log: (e: React.FormEvent<HTMLElement>) => void;
     toogle: (el: number) => void;
+    isActive: boolean;
 };

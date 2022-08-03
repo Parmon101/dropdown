@@ -38,3 +38,16 @@
     width: 0.7rem;
     height: 0.7rem;
 }
+
+.iArrow {
+    display: flex;
+    padding: 10px;
+}
+.iShow {
+    transition: transform 0.3s;
+}
+
+.iHide {
+    transition: transform 0.3s;
+    transform: rotate(180deg);
+}

@@ -50,7 +50,7 @@ export const Dropdown: React.FC<DataType> = () => {
     };
 
     React.useEffect(() => {
-        if (isMulty) {
+        if (!isMulty) {
             const isOneItem = data.filter((element) => element.check);
             isOneItem.length < 1 ? setSowCheck(true) : setSowCheck(false);
         }
@@ -60,7 +60,13 @@ export const Dropdown: React.FC<DataType> = () => {
         <>
             <div className={styles.container}>
                 <div className={styles.select}>
-                    <Select showSelect={showSelect} data={arr} log={log} toogle={toogle} />
+                    <Select
+                        showSelect={showSelect}
+                        data={arr}
+                        log={log}
+                        toogle={toogle}
+                        isActive={isActive}
+                    />
                 </div>
                 {isActive && (
                     <div className={styles.menu}>

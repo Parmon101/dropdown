@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './select.module.css';
 import iClose from '../../assets/icon/close.svg';
+import iArrow from '../../assets/icon/arrow.svg';
 import { DataType } from '../types/DataType';
 import { SelectType } from '../types/SelectType';
 
-export const Select: React.FC<SelectType> = ({ showSelect, data, log, toogle }) => {
+export const Select: React.FC<SelectType> = ({ showSelect, data, log, toogle, isActive }) => {
     const filter = data.filter((el) => el.check);
     const [_selectId, setSelectId] = React.useState<DataType[] | DataType>(data);
     const [_toogleCheck, setToogleCheck] = React.useState({});
@@ -30,6 +31,12 @@ export const Select: React.FC<SelectType> = ({ showSelect, data, log, toogle }) 
                         </div>
                     );
                 })}
+                <div className={styles.iArrow}>
+                    <img
+                        className={isActive ? styles.iShow : styles.iHide}
+                        src={iArrow}
+                        alt="reverse"></img>
+                </div>
             </div>
         </>
     );
