@@ -12,12 +12,12 @@ import { Select } from '../Select/Select';
 import { DataType } from '../types/DataType';
 
 const data = [
-    { id: 1, name: 'Русский', img: { rus }, check: false },
-    { id: 2, name: 'Английский', img: { en }, check: false },
-    { id: 3, name: 'Испанский', img: { spain }, check: true },
-    { id: 4, name: 'Немецкий', img: { germany }, check: true },
-    { id: 5, name: 'Итальянский', img: { italy }, check: false },
-    { id: 6, name: 'Польский', img: { poland }, check: false },
+    { id: 1, name: 'Русский', img: rus, check: false },
+    { id: 2, name: 'Английский', img: en, check: false },
+    { id: 3, name: 'Испанский', img: spain, check: true },
+    { id: 4, name: 'Немецкий', img: germany, check: true },
+    { id: 5, name: 'Итальянский', img: italy, check: false },
+    { id: 6, name: 'Польский', img: poland, check: false },
 ];
 
 export const Dropdown: React.FC<DataType> = () => {

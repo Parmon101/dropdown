@@ -1,4 +1,4 @@
 export type CheckboxType = {
-    data: { id: number; name: string; img: object; check: boolean };
+    data: { id: number; name: string; img: string; check: boolean };
     onChange: (el: number) => void;
 };

@@ -28,12 +28,7 @@ export const Table: React.FC<TableType> = ({ data, onChange, showLang }) => {
                             <div className={styles.split}>
                                 <div>
                                     {showLang && (
-                                        <img
-                                            height="24"
-                                            width="24"
-                                            src={String(Object.values(el.img))}
-                                            alt="lang"
-                                        />
+                                        <img height="24" width="24" src={el.img} alt="lang" />
                                     )}
                                     <div className={styles.name}>{el.name}</div>
                                 </div>

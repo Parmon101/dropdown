@@ -1,6 +1,6 @@
 export type DataType = {
     id: number;
     name: string;
-    img: object;
+    img: string;
     check: boolean;
 };
