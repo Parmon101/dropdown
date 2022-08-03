@@ -7,13 +7,18 @@ import { TableType } from '../types/TableType';
 export const Table: React.FC<TableType> = ({ data, onChange, showLang, showCheck, showSearch }) => {
     const [filterData, setFilterData] = React.useState(data);
 
+    React.useEffect(() => {
+        setFilterData(data);
+    }, [data]);
+
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-        let value = event.target.value.toLowerCase();
-        let result = [];
-        result = data.filter((data) => {
-            return data.name.toLowerCase().search(value) != -1;
+        const value = event.target.value.toLowerCase();
+        const filter = data.filter((data) => {
+            return data.name.toLowerCase().search(value) !== -1;
         });
-        setFilterData(result);
+        const res = [...filter];
+
+        setFilterData(res);
     };
 
     return (

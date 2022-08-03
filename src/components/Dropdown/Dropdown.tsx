@@ -14,7 +14,7 @@ import { DataType } from '../types/DataType';
 const data = [
     { id: 1, name: 'Русский', img: rus, check: false },
     { id: 2, name: 'Английский', img: en, check: false },
-    { id: 3, name: 'Испанский', img: spain, check: false },
+    { id: 3, name: 'Испанский', img: spain, check: true },
     { id: 4, name: 'Немецкий', img: germany, check: false },
     { id: 5, name: 'Итальянский', img: italy, check: false },
     { id: 6, name: 'Польский', img: poland, check: false },
@@ -24,9 +24,10 @@ export const Dropdown: React.FC<DataType> = () => {
     const [arr, setArr] = React.useState(data);
     const [isActive, setIsActive] = React.useState(false);
 
-    const [isShowLang, _setIsShowLang] = React.useState(true);
-    const [isSearch, _setIsSearch] = React.useState(true);
-    const [isMulty, _setIsMulty] = React.useState(true);
+    const isShowLang = true;
+    const isSearch = true;
+    const isMulty = true;
+
     const [showCheck, setSowCheck] = React.useState(true);
 
     React.useEffect(() => {
@@ -35,8 +36,16 @@ export const Dropdown: React.FC<DataType> = () => {
     }, []);
 
     const toogle = (el: number) => {
-        const newContent = [...arr];
-        newContent[el].check = !newContent[el].check;
+        const newContent = arr.map((objLang) => {
+            const changeCheck = { ...objLang };
+
+            if (objLang.id == el) {
+                changeCheck.check = !changeCheck.check;
+            }
+
+            return changeCheck;
+        });
+
         setArr(newContent);
     };
 
@@ -52,9 +61,9 @@ export const Dropdown: React.FC<DataType> = () => {
     React.useEffect(() => {
         if (!isMulty) {
             const isOneItem = data.filter((element) => element.check);
-            isOneItem.length < 1 ? setSowCheck(true) : setSowCheck(false);
+            setSowCheck(isOneItem.length < 1);
         }
-    });
+    }, [isMulty]);
 
     return (
         <>
