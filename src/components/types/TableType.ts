@@ -5,4 +5,5 @@ export type TableType = {
     onChange: (el: number) => void;
     showLang?: boolean;
     showCheck: boolean;
+    showSearch: boolean;
 };

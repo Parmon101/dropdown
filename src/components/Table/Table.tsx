@@ -4,7 +4,7 @@ import { Checkbox } from '../Checkbox';
 import { Search } from '../Search/Search';
 import { TableType } from '../types/TableType';
 
-export const Table: React.FC<TableType> = ({ data, onChange, showLang, showCheck }) => {
+export const Table: React.FC<TableType> = ({ data, onChange, showLang, showCheck, showSearch }) => {
     const [filterData, setFilterData] = React.useState(data);
 
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,9 +18,7 @@ export const Table: React.FC<TableType> = ({ data, onChange, showLang, showCheck
 
     return (
         <div>
-            <div>
-                <Search onChange={handleSearch} />
-            </div>
+            <div>{showSearch && <Search onChange={handleSearch} />}</div>
             <div>
                 {filterData.map((el) => {
                     return (

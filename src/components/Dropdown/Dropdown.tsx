@@ -25,6 +25,7 @@ export const Dropdown: React.FC<DataType> = () => {
     const [isActive, setIsActive] = React.useState(false);
 
     const [isShowLang, _setIsShowLang] = React.useState(true);
+    const [isSearch, _setIsSearch] = React.useState(true);
     const [isMulty, _setIsMulty] = React.useState(true);
     const [showCheck, setSowCheck] = React.useState(true);
 
@@ -47,7 +48,6 @@ export const Dropdown: React.FC<DataType> = () => {
         if (isMulty) {
             const isOneItem = data.filter((element) => element.check);
             isOneItem.length < 1 ? setSowCheck(true) : setSowCheck(false);
-            console.log(isOneItem.length);
         }
     });
 
@@ -64,6 +64,7 @@ export const Dropdown: React.FC<DataType> = () => {
                             onChange={toogle}
                             showLang={isShowLang}
                             showCheck={showCheck}
+                            showSearch={isSearch}
                         />
                     </div>
                 )}
