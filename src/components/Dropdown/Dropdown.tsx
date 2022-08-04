@@ -20,13 +20,15 @@ const data = [
     { id: 6, name: 'Польский', img: poland, check: false },
 ];
 
-export const Dropdown: React.FC<DataType> = () => {
+export type DropdownType = {
+    isShowLang: boolean;
+    isSearch: boolean;
+    isMulty: boolean;
+};
+
+export const Dropdown: React.FC<DataType & DropdownType> = ({ isShowLang, isSearch, isMulty }) => {
     const [arr, setArr] = React.useState(data);
     const [isActive, setIsActive] = React.useState(false);
-
-    const isShowLang = true;
-    const isSearch = true;
-    const isMulty = true;
 
     const [showCheck, setSowCheck] = React.useState(true);
 

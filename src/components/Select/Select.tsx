@@ -7,8 +7,9 @@ import { SelectType } from '../types/SelectType';
 export const Select: React.FC<SelectType> = ({ showSelect, data, log, toogle, isActive }) => {
     const filter = data.filter((el) => el.check);
 
-    const changeCheck: React.MouseEventHandler<HTMLInputElement> = (el) => {
-        const numId = Number(el.currentTarget.id);
+    const removeSelected: React.MouseEventHandler<HTMLInputElement> = (el) => {
+        const numId = Number(el.currentTarget.dataset.id);
+
         toogle(numId);
     };
     return (
@@ -21,8 +22,8 @@ export const Select: React.FC<SelectType> = ({ showSelect, data, log, toogle, is
                             return (
                                 <div key={select.id} className={styles.tag} onClick={log}>
                                     <span>{select.name}</span>
-                                    <div onClick={changeCheck} id={`${select.id}`}>
-                                        <img src={iClose} alt="-"></img>
+                                    <div onClick={removeSelected} data-id={select.id}>
+                                        <img src={iClose} alt="remove"></img>
                                     </div>
                                 </div>
                             );

@@ -5,7 +5,7 @@ import { SearchType } from '../types/SearchType';
 export const Search: React.FC<SearchType> = ({ onChange }) => {
     return (
         <div className={styles.search}>
-            <img className={styles.searchIcon} width="16" height="16" src={isearch} alt="logo" />
+            <img className={styles.searchIcon} width="16" height="16" src={isearch} alt="search" />
             <input
                 className={styles.searchInput}
                 type="Search"

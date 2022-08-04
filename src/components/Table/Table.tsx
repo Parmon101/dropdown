@@ -13,8 +13,8 @@ export const Table: React.FC<TableType> = ({ data, onChange, showLang, showCheck
 
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value.toLowerCase();
-        const filter = data.filter((data) => {
-            return data.name.toLowerCase().search(value) !== -1;
+        const filter = data.filter((obj) => {
+            return obj.name.toLowerCase().search(value) !== -1;
         });
         const res = [...filter];
 
